@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+</head>
+<body>
+    <div id="div1">
+        <h1>Hello World</h1>
+    </div>
+    <script>
+        let heading = document.createElement("h1");
+        heading.innerHTML = "Hello World 1";
+        let div1 = document.getElementById("div1");
+        div1.appendChild(heading);
+        console.log("hello");
+    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</body>
+</html>
