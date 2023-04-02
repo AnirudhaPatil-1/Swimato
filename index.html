@@ -7,9 +7,11 @@
     <title>Hello</title>
 </head>
 <body>
+    <div>Header</div>
     <div id="root">
         <h1>Hello World</h1>
     </div>
+    <div>Footer</div>
     <!-- <script>
         const heading = document.createElement("h1");
         heading.innerHTML = "Hello World 1";
@@ -22,6 +24,8 @@
     
     <script>
         const heading = React.createElement("h1", {}, "Namaste Everyone!");
+        
+        console.log(heading);
 
         const root = ReactDOM.createRoot(document.getElementById("root"));
 
