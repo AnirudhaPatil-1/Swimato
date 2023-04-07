@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+</head>
+<body>
+    <div>Header</div>
+    <div id="root">
+        <h1>Hello World</h1>
+    </div>
+    <div>Footer</div>
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World 1";
+        const div = document.getElementById("root");
+        div.appendChild(heading);
+        console.log("hello");
+    </script> -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <script>
+        const heading = React.createElement("h1", {}, "Namaste Everyone!");
+        
+        console.log(heading);
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(heading);
+    </script>
+
+     <!-- Injected external js file -->
+     <script src="App.js"></script>
+</body>
+</html>
