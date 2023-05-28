@@ -9,6 +9,7 @@
 <body>
     <div>Header</div>
     <div id="root">
+        "Not Rendered"
         <h1>Hello World</h1>
     </div>
     <div>Footer</div>
@@ -23,13 +24,28 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     
     <script>
-        const heading = React.createElement("h1", {}, "Namaste Everyone!");
+        // const heading = React.createElement("h1", {}, "Namaste Everyone!");
         
-        console.log(heading);
+        // console.log(heading);
 
+        // const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        // root.render(heading);
+
+        // 2.
+
+        const heading1 = React.createElement("h1", {
+            id: "heading1"
+        }, "HEADING 1");
+        const heading2 = React.createElement("h2", {
+            id: "heading2"
+        }, "HEADING 2");
+        const container = React.createElement("div", {
+            id: "container" 
+        }, [heading1, heading2]);
+        
         const root = ReactDOM.createRoot(document.getElementById("root"));
-
-        root.render(heading);
+        root.render(container);
     </script>
 
      <!-- Injected external js file -->
