@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello</title>
-    <style>
+    <!-- <style>
         body{
             background-color: grey;
         }
-    </style>
+    </style> -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div>Header</div>
@@ -28,7 +29,7 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     
-    <script>
+    <script src="./App.js">
         // const heading = React.createElement("h1", {}, "Namaste Everyone!");
         
         // console.log(heading);
@@ -39,21 +40,9 @@
 
         // 2.
 
-        const heading1 = React.createElement("h1", {
-            id: "heading1"
-        }, "HEADING 1");
-        const heading2 = React.createElement("h2", {
-            id: "heading2"
-        }, "HEADING 2");
-        const container = React.createElement("div", {
-            id: "container" 
-        }, [heading1, heading2]);
-        
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(container);
     </script>
 
      <!-- Injected external js file -->
-     <script src="App.js"></script>
+
 </body>
 </html>
