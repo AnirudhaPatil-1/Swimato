@@ -27,5 +27,37 @@ function x(){
     }
     y(); 
 }
-
 x();
+
+// 3.
+console.log("-----------------3.----------------");
+const person ={
+    name: "Akshay"
+}
+const person2 = {
+    name: "Simran"
+}
+function xx(){
+    console.log(this);
+}
+xx();
+xx.call(this);
+xx.call(person);
+xx.call(person2);   
+
+// 4.
+console.log("-----------------4.----------------");
+const person11 = {
+    name: "Akshay",
+    print: function(){
+        console.log(this);
+    }
+}
+const person22 = {
+    name: "Simran"
+}
+
+person11.print();
+person11.print.call();
+person11.print.call(this);
+person11.print.call(person22); 
