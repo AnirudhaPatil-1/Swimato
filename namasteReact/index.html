@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div>Header</div>
-    <div id="root">
+    <!-- <div>Header</div> -->
+    <!-- <div id="root">
         "Not Rendered"
         <h1>Hello World</h1>
-    </div>
-    <div>Footer</div>
+    </div> -->
+    <!-- <div>Footer</div> -->
+    <div id="root">Not Rendered</div>
     <!-- <script>
         const heading = document.createElement("h1");
         heading.innerHTML = "Hello World 1";
@@ -26,23 +27,20 @@
         div.appendChild(heading);
         console.log("hello");
     </script> -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     
-    <script src="./App.js">
-        // const heading = React.createElement("h1", {}, "Namaste Everyone!");
+    <!-- <script type="module" src="./App.js">
+        const heading = React.createElement("h1", {}, "Namaste Everyone!");
         
-        // console.log(heading);
+        console.log(heading);
 
-        // const root = ReactDOM.createRoot(document.getElementById("root"));
+        const root = ReactDOM.createRoot(document.getElementById("root"));
 
-        // root.render(heading);
+        root.render(heading);
 
-        // 2.
+        2.
 
-    </script>
-
-     <!-- Injected external js file -->
-
+    </script> -->
+    <!-- Injected external js file -->
+    <script type="module" src="./App.js"></script>
 </body>
 </html>
