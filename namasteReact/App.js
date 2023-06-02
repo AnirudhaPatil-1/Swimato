@@ -26,12 +26,23 @@ import { Browser } from "selenium-webdriver"
 import { buildPath } from "selenium-webdriver/http"
 import { CommandExecutor, Server } from "selenium-webdriver/safari";
 
-const heading1 = React.createElement("h1", {
-    id: "heading1"
+//React.createElement=> Object=> HTML(DOM)
+const heading1 = React.createElement("h1", 
+{
+    id: "heading1",
+    key: "h1"
 }, "HEADING 1");
-const heading2 = React.createElement("h2", {
-    id: "heading2"
-}, "HEADING 2");
+
+//JSX=> React.createElement=> Object=> HTML(DOM)
+const heading2 = (
+    <h2 id="title" key="h2">  
+        Namaste React
+    </h2>)
+// const heading2 = React.createElement("h2", 
+// {
+//     id: "heading2",
+//     key: "h2"
+// }, "HEADING 2");
 const container = React.createElement("div", {
     id: "container" 
 }, [heading1, heading2]);
