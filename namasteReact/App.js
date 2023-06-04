@@ -1,27 +1,72 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-/* Nested React Elements inside container div and rendering in root */
-const heading1 = React.createElement("h1", {key: "1", id: "title"}, "Namaste React using React");
-// const heading2 = React.createElement("h2", {key: "2", id: "sub_title"}, "Nested React Elements");
-// const container = React.createElement("div", {id: "content"}, [heading1, heading2]);
+const Title = ()=> (
+        <a>
+            <img
+            className='logo'
+            alt='logo'
+            src="https://img.freepik.com/premium-vector/online-food-app-icon-food-shop-location-logo-also-online-resturent-location-template_608547-155.jpg?w=2000"
+            // src="https://drive.google.com/file/d/1HEA5_KKZTB1OMXKVhUEodoPiTfltayet/view?usp=sharing" 
+            />
+        </a>
+)
 
-// const title = (
-//     <h1 id="title" key="h2">
-//         Namaste React
-//     </h1>
-// );
+//composing components
+const HeaderComponent = () => {
+    return (
+        <div className="header">
+            <Title/>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
+}
 
-// //Composing components
-// const HeaderComponent = () => {
-//     return (
-//         <div>
-//             {title}
-//             <h2>Subheading for Namaste React</h2>
-//             {/* <h2>this is one more h2 heading</h2> */}
-//         </div>
-//     )
-// }
+const Body = () => {
+    return(
+        <h4>Body</h4>
+    )
+}
+
+const styleObj = {
+    backgroundColor: "red"
+}
+
+const Footer = () => {
+    // 1.
+    // return(
+    //     <div style={styleObj} >
+    //         <h4>Footer</h4>
+    //     </div>
+    // )
+    // 2.
+    return(
+        <div style= {{
+            backgroundColor: "red"
+        }} >
+            <h4>Footer</h4>
+        </div>
+    )
+}
+
+const AppLayout = () => {
+    return (
+        <>
+            <HeaderComponent/>   
+            <Body/>
+            <Footer/>
+        </>
+
+    )
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading1);
+root.render(<AppLayout/>);
 // root.render(<HeaderComponent/>);
