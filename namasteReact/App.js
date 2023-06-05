@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import logo from './assets/hungryBites.png';
 
 const restaurantList = [
     {
@@ -734,23 +734,19 @@ const restaurantList = [
     },
 ];
 
-const Title = ()=> (
-        <a>
-            <img
-            className='logo'
-            alt='logo'
-            src="https://img.freepik.com/premium-vector/online-food-app-icon-food-shop-location-logo-also-online-resturent-location-template_608547-155.jpg?w=2000"
-            // src="https://drive.google.com/file/d/1HEA5_KKZTB1OMXKVhUEodoPiTfltayet/view?usp=sharing" 
-            />
-        </a>
-)
+const  imgCdn = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-//composing components
-const HeaderComponent = () => {
+const Title = () => {
+    return(
+        <a href="/">
+            <img className="logo" alt="logo" src={logo} />
+        </a>
+    )
+}
+
+const NavComponent = ()=>{
     return (
-        <div className="header">
-            <Title/>
-            <div className="nav-items">
+        <div className="nav-items">
                 <ul>
                     <li>Home</li>
                     <li>About</li>
@@ -758,13 +754,36 @@ const HeaderComponent = () => {
                     <li>Cart</li>
                 </ul>
             </div>
+    )
+}
+
+//composing components
+const Header = () => {
+    return (
+        <div className="header">
+            <Title/>
+            <NavComponent/>
+        </div>
+    )
+}
+
+
+
+const RestaurantList = () => {
+    return (
+        <div className="restaurant-list">
+            {restaurantList.map((restaurant)=>{
+                return (
+                    <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
+                )
+            })}
         </div>
     )
 }
 
 const Body = () => {
     return(
-        <h4>Body</h4>
+        <RestaurantList/>
     )
 }
 
@@ -772,18 +791,11 @@ const styleObj = {
     backgroundColor: "red"
 }
 
+//JSX - one parent
+//React.Fragment
 const Footer = () => {
-    // 1.
-    // return(
-    //     <div style={styleObj} >
-    //         <h4>Footer</h4>
-    //     </div>
-    // )
-    // 2.
     return(
-        <div style= {{
-            backgroundColor: "red"
-        }} >
+        <div>
             <h4>Footer</h4>
         </div>
     )
@@ -792,7 +804,7 @@ const Footer = () => {
 const AppLayout = () => {
     return (
         <>
-            <HeaderComponent/>   
+            <Header/>   
             <Body/>
             <Footer/>
         </>
