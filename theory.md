@@ -1,1 +1,0 @@
-theory for the first lec of Namaste React Lec. Inception
