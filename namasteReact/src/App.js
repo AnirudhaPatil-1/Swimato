@@ -1,28 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Header from './components/Header.js';
-import Body from './components/Body.js';
-import Footer from './components/Footer.js';
-import {IMG_CDN_URL} from './components/constants.js' 
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const styleObj = {
-    backgroundColor: "red"
-}
-
-//JSX - one parent
-//React.Fragment
-
+import * as MainHeader from "./components/Header"; /* Imported using import * as namespace  */ 
+import Body from "./components/Body"; /* Imported using default export */
+import { Footer as MainFooter } from "./components/Footer"; /* Imported using Named Import Map */
 
 const AppLayout = () => {
-    return (
-        <>
-            <Header/>   
-            <Body/>
-            <Footer/>
-        </>
-    )
-}
+  return (
+    <>
+      <MainHeader.Header />
+      <Body />
+      <MainFooter />
+    </>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
-// root.render(<HeaderComponent/>);
+
+root.render(<AppLayout />);
