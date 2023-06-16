@@ -20,15 +20,10 @@ const Body = () => {
     }, []);
 
     const getRestaurants = async () =>  {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.485132&lng=73.8110947&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING")
-        // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.485132&lng=73.8110947&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        // console.log(json);
-        await setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-        await setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-        // setAllRestaurants(restaurantList);
-        // setFilteredRestaurants(restaurantList);
-        // setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     }
 
     const searchData = (searchText,restaurants) =>{
