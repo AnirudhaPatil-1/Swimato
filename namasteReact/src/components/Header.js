@@ -1,4 +1,6 @@
 import logo from './hungryBites.png'
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 const Title = () => {
     return(
@@ -12,10 +14,18 @@ const NavComponent = ()=>{
     return (
         <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
+                    <Link to='./Home'>
+                        <li>Home</li>
+                    </Link>
+                    <Link to='./About'>
+                        <li>About</li>
+                    </Link>
+                    <Link to='./Contact'>
+                        <li>Contact</li>
+                    </Link>
+                    <Link to='./Card'>
+                        <li>Cart</li>
+                    </Link>
                 </ul>
             </div>
     )
@@ -23,10 +33,21 @@ const NavComponent = ()=>{
 
 //composing components
 const Header = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     return (
         <div className="header">
             <Title/>
             <NavComponent/>
+            {isLoggedIn ? 
+            (<button 
+                className="logout"
+                onClick = {() => {setIsLoggedIn(false)}}
+            >Logout</button>) : 
+            (<button 
+            className="Login"
+            onClick = {() => {setIsLoggedIn(true)}}
+            >Login</button>)}
+
         </div>
     )
 }
