@@ -1,7 +1,7 @@
 import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "./npmShimmer";
 import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
