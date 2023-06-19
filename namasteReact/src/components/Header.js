@@ -1,55 +1,44 @@
-import logo from './hungryBites.png'
-import {useState} from 'react'
-import {Link} from 'react-router-dom'
+import { useState } from "react";
+import Logo from "../assets/foodvilla.png";
+import { Link } from "react-router-dom";
 
-const Title = () => {
-    return(
-        <a href="/">
-            <img className="logo" alt="logo" src={logo} />
-        </a>
-    )
-}
+// SPA - Single Page Application???
+// Client Side Routing
 
-const NavComponent = ()=>{
-    return (
-        <div className="nav-items">
-                <ul>
-                    <Link to='./Home'>
-                        <li>Home</li>
-                    </Link>
-                    <Link to='./About'>
-                        <li>About</li>
-                    </Link>
-                    <Link to='./Contact'>
-                        <li>Contact</li>
-                    </Link>
-                    <Link to='./Card'>
-                        <li>Cart</li>
-                    </Link>
-                </ul>
-            </div>
-    )
-}
+const Title = () => (
+  <a href="/">
+    <img className="logo" alt="logo" src={Logo} />
+  </a>
+);
 
-//composing components
 const Header = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
-    return (
-        <div className="header">
-            <Title/>
-            <NavComponent/>
-            {isLoggedIn ? 
-            (<button 
-                className="logout"
-                onClick = {() => {setIsLoggedIn(false)}}
-            >Logout</button>) : 
-            (<button 
-            className="Login"
-            onClick = {() => {setIsLoggedIn(true)}}
-            >Login</button>)}
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-        </div>
-    )
-}
+  return (
+    <div className="header">
+      <Title />
+      <div className="nav-items">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
+          <li>Cart</li>
+        </ul>
+      </div>
+      {isLoggedIn ? (
+        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+      ) : (
+        <button onClick={() => setIsLoggedIn(true)}>Login</button>
+      )}
+    </div>
+  );
+};
 
 export default Header;
