@@ -1,24 +1,20 @@
-body{
-    /* background-color: rgb(212, 194, 102); */
-}
-
-.header{
+.header {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: space-between ;
+    margin: 10px;
     border: 1px solid black;
 }
 
-.nav-items > ul {
+.nav-items > ul{
     list-style-type: none;
     display: flex;
 }
 
-.nav-items > ul > li{
+.nav-items > ul > li {
     padding: 10px;
 }
 
-.logo{
+.logo {
     width: 100px;
 }
 
@@ -27,28 +23,24 @@ body{
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
-
 }
 
-.card > img{
+.card > img {
     width: 100%;
 }
 
-.restaurant-list{
+.restaurant-list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.card-rating{
-    background-color: #db7c38;
-    color: #fff;
-    padding:2px;
-    margin:2px;
-}
-.card-title{
-    font-weight: bold;
+.shimmer-card {
+    width: 200px;
+    height: 200px;
+    background: lightgrey;
+    margin: 20px;
 }
 
-.card:hover{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.menu {
+    display: flex;
 }
