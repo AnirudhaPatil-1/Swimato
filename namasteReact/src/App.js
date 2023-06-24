@@ -11,6 +11,15 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import ProfileClass from "./components/ProfileClass";
 
+const Instamart = lazy(() => import("./components/Instamart"));
+const About = lazy(() => import("./components/About"));
+// Chunking
+// Code Splitting
+// Dynamic Bundling
+// Lazy Loading
+// On Demand Loading
+// Dynamic Import
+
 const AppLayout = () => {
   return (
     <>
@@ -27,31 +36,38 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "about",
-        element: <About />,
-        children:[
+        path: "/about", // parentPath/{path} => localhost:1244/about
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <About />
+          </Suspense>
+        ),
+        children: [
           {
-            path: "profile",
-            element: <Profile/>
+            path: "profile", // parentPath/{path} => localhost:1244/about/profile
+            element: <Profile />,
           },
-          {
-            path: "profileClass",
-            element: <ProfileClass />
-        }
-        ]
-
+        ],
       },
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />
+        element: <RestaurantMenu />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },
