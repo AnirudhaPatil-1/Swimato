@@ -1,16 +1,10 @@
-import { restaurantList } from "../constants";
+import { restaurantList } from "../contants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./npmShimmer";
+import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-
-  return filterData;
-}
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -22,7 +16,6 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
@@ -30,18 +23,17 @@ const Body = () => {
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
-
-  // not render component (Early return)
+  
   if (!allRestaurants) return null;
 
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="search-container p-5 bg-pink-50 my-5">
         <input
           type="text"
-          className="search-input"
+          className="focus:bg-green-200 p-2 m-2"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -49,7 +41,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+        className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
           onClick={() => {
             //need to filter the data
             const data = filterData(searchText, allRestaurants);
@@ -60,9 +52,8 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
-        {/* You have to write logic for NO restaurant fount here */}
-        {filteredRestaurants.map((restaurant) => {
+      <div className="flex flex-wrap  ">
+         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
               to={"/restaurant/" + restaurant.data.id}
