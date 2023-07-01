@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { lazy, Suspense, useState, useContext } from "react";
+import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import About from "./components/About";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
-import ProfileClass from "./components/ProfileClass";
+import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/useContext"
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
@@ -21,12 +21,26 @@ const About = lazy(() => import("./components/About"));
 // Dynamic Import
 
 const AppLayout = () => {
+  
+  const[user, setUser] = useState({
+    name: "Anirudha Patil",
+    email: "anirudha.patil@gmail.com",
+  });
+
   return (
-    <>
+    <UserContext.Provider 
+      value = {{
+        user: user,
+        setUser: setUser
+      }}
+    >
+      <>
       <Header />
       <Outlet />
       <Footer />
     </>
+    </UserContext.Provider>
+    
   );
 };
 const appRouter = createBrowserRouter([
@@ -51,7 +65,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/",
-        element: <Body />,
+        element: <Body/>,
       },
       {
         path: "/contact",
