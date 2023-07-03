@@ -1,50 +1,57 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Logo from "../assets/img/foodvilla.png";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
-import {useContext} from "react";
-import UserContext from "../utils/useContext";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 // SPA - Single Page Application???
 // Client Side Routing
 
 const Title = () => (
   <a href="/">
-    <img className="h-12 p-2" alt="logo" src={Logo} />
+    <img className="h-28 p-2" alt="logo" src={Logo} />
   </a>
 );
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {user} = useContext(UserContext);
+
+  const isOnline = useOnline();
+
+  const { user } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
-    <div className=" h-10 flex justify-between bg-pink-50 shadow-md">
+    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
       <Title />
       <div className="nav-items">
-        <ul className="flex py-1">
-          <li className="mr-6">
+        <ul className="flex py-10">
+          <li className="px-2">
             <Link to="/">Home</Link>
           </li>
 
           <Link to="/about">
-            <li className="mr-6">About</li>
+            <li className="px-2">About</li>
           </Link>
           <Link to="/contact">
-            <li className="mr-6">Contact</li>
+            <li className="px-2">Contact</li>
           </Link>
-          <li className="mr-6">Cart</li>
           <Link to="/instamart">
-            <li>Instamart</li>
+            <li className="px-2">Instamart</li>
+          </Link>
+          <Link to="/cart">
+            <li className="px-2">Cart- {cartItems.length} items</li>
           </Link>
         </ul>
       </div>
-      <span>{user.name}</span>
-      <span>{user.email}</span>
+      <h1>{isOnline ? "✅" : "🔴"}</h1>
       {isLoggedIn ? (
-        <button className="bg-blue-400  w-20 h-10 p-2 hover:bg-blue-700 text-white font-bold py-2 rounded " onClick={() => setIsLoggedIn(false)}>Logout</button>
+        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
       ) : (
-        <button  className="bg-blue-400 w-20 h-10 p-2 hover:bg-blue-700 text-white font-bold py-2 rounded" onClick={() => setIsLoggedIn(true)}>Login</button>
+        <button onClick={() => setIsLoggedIn(true)}>Login</button>
       )}
     </div>
   );

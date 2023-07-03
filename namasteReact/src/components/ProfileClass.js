@@ -1,49 +1,67 @@
-import React from 'react';
+import React from "react";
 
+class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    // Create State
+    this.state = {
+      userInfo: {
+        name: "Dummy Name",
+        location: "Dummy Location",
+      },
+    };
+    //console.log("Child - Constructor" + this.props.name);
+  }
 
-class ProfileClass extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            userInfo: "Test userName",
-            location: "Test location"
-        }
+  componentDidMount() {
+    // this.timer = setInterval(() => {
+    //   console.log("NAMASTE REACT OP ");
+    // }, 1000);
+
+    //console.log("Child - componentDidMount");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.count !== prevState.count) {
+      //
     }
-
-    componentDidMount(){
-        // this.timer = setInterval(() => {
-        //     console.log("printing using componentDidMount");
-        // }, 2000)
+    if (this.state.count2 !== prevState.count2) {
+      // code
     }
+    console.log("Component Did Update");
+  }
+  componentWillUnmount() {
+    // clearInterval(this.timer);
+    //console.log("ComponentWillUnmount");
+  }
 
-    componentDidUpdate(prevProps, prevState){
-        if(this.state.count !== prevState.count){
-
-        }
-        if(this.state.count2 !== prevState.count2){
-
-        }
-    }
-
-    componentWillMount(){
-        const {count} = this.state;
-    }
-
-    render(){
-        return(
-            <div>
-                <h1> ProfileClass</h1>
-                <h2>Props Value: {this.props.key}</h2>
-                <p>
-                    {this.state.userInfo}
-                    <br/>
-                    {this.state.location}
-                </p>
-            </div>
-
-
-        )
-    }
+  render() {
+    const { count } = this.state;
+    //console.log("Child - render" + this.props.name);
+    return (
+      <div>
+        <h1> Profile Class Component </h1>
+        <img src={this.state.userInfo.avatar_url} />
+        <h2>Name: {this.state.userInfo.name}</h2>
+        <h2>Location: {this.state.userInfo.location}</h2>
+      </div>
+    );
+  }
 }
 
-export default ProfileClass;
+/**
+ *
+ *  child constructor
+ *  child render
+ *  child componentDidMount
+ *
+ *  API call
+ *  Set State
+ *
+ *  <UPDATE CYCLES>
+ *  render
+ *
+ *
+ */
+
+export default Profile;

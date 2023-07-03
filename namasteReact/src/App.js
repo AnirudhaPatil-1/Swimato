@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useContext } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,10 +6,13 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
-import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
-import UserContext from "./utils/useContext"
+import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
@@ -21,26 +24,24 @@ const About = lazy(() => import("./components/About"));
 // Dynamic Import
 
 const AppLayout = () => {
-  
-  const[user, setUser] = useState({
-    name: "Anirudha Patil",
-    email: "anirudha.patil@gmail.com",
+  const [user, setUser] = useState({
+    name: "Akshay Saini",
+    email: "support@namastedev.com",
   });
 
   return (
-    <UserContext.Provider 
-      value = {{
-        user: user,
-        setUser: setUser
-      }}
-    >
-      <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
-    </UserContext.Provider>
-    
+    <Provider store={store}>
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -65,7 +66,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/",
-        element: <Body/>,
+        element: <Body />,
       },
       {
         path: "/contact",
@@ -82,6 +83,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

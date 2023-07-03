@@ -1,30 +1,36 @@
-import {useState, useEffect} from 'react';
+import { useEffect, useState } from "react";
 
 const Profile = (props) => {
-    const [count, setCount] = useState(0);
-    // useEffect(() => {
-    //     const timer = setInterval(() => {
-    //         console.log("Functional component timer")
-    //     }, 1100);
+  const [count, setCount] = useState(0);
 
-    //     return () => {
-    //         clearInterval(timer);
-    //         console.log("useEffect Return")
-    //     };
-    // }, [])
+  useEffect(() => {
+    // API Call
+    // const timer = setInterval(() => {
+    //   console.log("NAMASTE REACT OP ");
+    // }, 1000);
+    // console.log("useEffect");
 
-    return(
-        <div className = "profile">
-            <h1>ProfileFunctionalComponent</h1>
-            <h3>Props Value: {props.key1} </h3>
-            <h3>{count}</h3>
-            <button onClick={()=> {
-                setCount(1);
-            }}>
-                click me
-            </button>
-        </div>
-    )
-}
+    return () => {
+      // clearInterval(timer);
+      // console.log("useEffect Return");
+    };
+  }, []);
+  console.log("render");
+
+  return (
+    <div>
+      <h2>Porofile Component</h2>
+      <h3>Name: {props.name}</h3>
+      <h3>Count: {count}</h3>
+      {/* <button
+        onClick={() => {
+          setCount(1);
+        }}
+      >
+        Count
+      </button> */}
+    </div>
+  );
+};
 
 export default Profile;
