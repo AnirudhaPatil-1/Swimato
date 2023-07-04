@@ -48,5 +48,9 @@ Thumbs.db
 *.mov
 *.wmv
 
-.parcel_cache
+# .parcel_cache
 .parcel-cache/
+
+# /node_modules
+# /dist
+# /.parcel-cache

@@ -14,7 +14,7 @@ const Error = () => {
 				<p>
 					Oops!! Nothin' in there But Please dont fret, we know you are hungry.
 				</p>
-				<p>So the correct address would be foodoosh.com</p>
+				{/* <p>So the correct address would be foodoosh.com</p> */}
 
 				<button className="error-cta">Ughh ! get me some food</button>
 			</div>

@@ -1,60 +1,98 @@
-import { useState, useContext } from "react";
-import Logo from "../assets/img/foodvilla.png";
-import { Link } from "react-router-dom";
-import useOnline from "../utils/useOnline";
-import UserContext from "../utils/UserContext";
-import { useSelector } from "react-redux";
+// React Imports
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-// SPA - Single Page Application???
-// Client Side Routing
+//Icons Import
+import { TbDiscount2 } from "react-icons/tb";
+import { IoHelpCircleOutline } from "react-icons/io5";
+import { FiUser } from "react-icons/fi";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import IconWithRightLabel from "./IconWithRightLabel";
 
-const Title = () => (
-  <a href="/">
-    <img className="h-28 p-2" alt="logo" src={Logo} />
-  </a>
-);
+// other config imports
 
+// Component Header
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+	// init local state
+	const [showDrawer, setShowDrawer] = useState(false);
 
-  const isOnline = useOnline();
+	// active style for header
+	let activeStyle = {
+		color: "#e67e22",
+	};
 
-  const { user } = useContext(UserContext);
+	// return
+	return (
+		<div className="header">
+			<Title />;
+			<ul>
+				<li>
+					<NavLink
+						to="/offers"
+						style={({ isActive }) => (isActive ? activeStyle : null)}
+					>
+						<IconWithRightLabel
+							text="Offers"
+							icon={<TbDiscount2 style={{ height: "24px", width: "24px" }} />}
+						/>
+					</NavLink>
+				</li>
 
-  const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+				<li>
+					<NavLink
+						to="/help"
+						style={({ isActive }) => (isActive ? activeStyle : null)}
+					>
+						<IconWithRightLabel
+							text="Help"
+							icon={
+								<IoHelpCircleOutline
+									style={{ height: "22px", width: "22px" }}
+								/>
+							}
+						/>
+					</NavLink>
+				</li>
 
-  return (
-    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
-      <Title />
-      <div className="nav-items">
-        <ul className="flex py-10">
-          <li className="px-2">
-            <Link to="/">Home</Link>
-          </li>
+				<li>
+					<NavLink
+						to="/sign"
+						style={({ isActive }) => (isActive ? activeStyle : null)}
+					>
+						<IconWithRightLabel
+							isDrawerOpen={showDrawer}
+							onClick={() => setShowDrawer(!showDrawer)}
+							text="Sign In"
+							icon={<FiUser style={{ height: "24px", width: "24px" }} />}
+						/>
+					</NavLink>
+				</li>
 
-          <Link to="/about">
-            <li className="px-2">About</li>
-          </Link>
-          <Link to="/contact">
-            <li className="px-2">Contact</li>
-          </Link>
-          <Link to="/instamart">
-            <li className="px-2">Instamart</li>
-          </Link>
-          <Link to="/cart">
-            <li className="px-2">Cart- {cartItems.length} items</li>
-          </Link>
-        </ul>
-      </div>
-      <h1>{isOnline ? "✅" : "🔴"}</h1>
-      {isLoggedIn ? (
-        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-      ) : (
-        <button onClick={() => setIsLoggedIn(true)}>Login</button>
-      )}
-    </div>
-  );
+				<li>
+					<IconWithRightLabel
+						text="Cart"
+						icon={
+							<HiOutlineShoppingCart
+								style={{ height: "24px", width: "24px" }}
+							/>
+						}
+					/>
+				</li>
+			</ul>
+		</div>
+	);
+};
+
+const Title = () => {
+	return (
+		<h1>
+			<NavLink to="/">
+				<span style={{ color: " #2c3e50" }}>
+					Food<span style={{ color: "#e67e22" }}>OOSH</span>
+				</span>
+			</NavLink>
+		</h1>
+	);
 };
 
 export default Header;
