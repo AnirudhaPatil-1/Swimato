@@ -1,14 +1,47 @@
-import { IMG_CDN_URL } from "../contants";
+import React from "react";
 
-const FoodItem = ({ name, description, cloudinaryImageId, price }) => {
+import {FaStar} from "react-icons/fa";
+
+import {restrautlist, URL} from "../config.js";
+
+export default function FoodCard({
+  name, cloudinaryImageId,
+  cuisines,
+  avgRating,
+  deliveryTime,
+  costForTwoString,
+  id,
+}) {
   return (
-    <div className="w-56 p-2 m-2 shadow-lg bg-pink-50">
-      <img src={IMG_CDN_URL + cloudinaryImageId} />
-      <h2 className="font-bold text-xl">{name}</h2>
-      <h3>{description}</h3>
-      <h4>Rupees: {price / 100}</h4>
-    </div>
-  );
-};
+    <div className="foodContainer">
+      <img src={URL + cloudinaryImageId} className="foodImage"/>
 
-export default FoodItem;
+      <div style={{padding: "0 16px"}}>
+        <p style={{fontWeight:"bold", marginBottom: "40x"}}>{name}</p>
+        <p style={{marginBottom: "16px", height: "40px"}}>
+          {cuisines.join(",")}
+        </p>
+      </div>
+      <div className="tag">
+        <div className="starRating">
+          <FaStar color="white"/>
+          <span style={{marginLeft: "6px"}}>{avgRating}</span>
+        </div>
+        <p>.</p>
+				<p>{deliveryTime + "minutes"}</p>
+				<p>.</p>
+				<p>{costForTwoString}</p>
+			</div>
+
+			<div
+				style={{
+					height: 1,
+					width: "100%",
+					backgroundColor: "#bdc3c7",
+					marginTop: 16,
+				}}
+			></div>
+			<div className="addCtaContainer"></div>
+		</div>
+	);
+}
