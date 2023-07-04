@@ -1,36 +1,43 @@
-import React from "react";
-import "../theme/CommonStyle.css";
+import React, { useState } from "react";
+import "./style.css";
 
-import { URL } from "../config";
+import { IoIosArrowDown } from "react-icons/io";
+import IconWithRightLabel from "./IconWithRightLabel";
+import { AiFillCaretDown } from "react-icons/ai";
+import { AiFillCaretUp } from "react-icons/ai";
 
-const CouponCard = ({
-	couponCodeText,
-	couponCodeDescription,
-	couponCodeTagColor,
-	logo,
-}) => {
-	console.log(logo);
+const Accordion = ({ text }) => {
+	// console.log("faq", question);
+	const [showAnswer, setShowAnswer] = useState(false);
 	return (
-		<div>
+		<div
+			style={{
+				borderBottom: "1px solid #d4d5d9",
+				paddingBottom: "20px",
+				alignItems: "center",
+			}}
+		>
 			<div
 				style={{
-					background: couponCodeTagColor,
-					border: "0.6px solid #daceb7",
-					fontSize: "16px",
-					padding: "8px 12px",
-					marginBottom: "8px",
 					display: "flex",
 					justifyContent: "space-between",
-					width: "200px",
+					alignItems: "center",
+					margin: "10px 0",
 				}}
 			>
-				<img src={logo} style={{ height: "20px", width: "20px" }} />
-				<h2 className="font_size_xl">{couponCodeText}</h2>
+				<p style={{ color: "black", fontFamily: "sans-serif" }}>{text}</p>
+
+				<button
+					onClick={() => setShowAnswer(!showAnswer)}
+					style={{ border: "none", padding: "6px" }}
+				>
+					{showAnswer ? <AiFillCaretUp /> : <AiFillCaretDown />}
+				</button>
 			</div>
 
-			<p className="m_b_6">{couponCodeDescription}</p>
+			<p style={{ color: "black" }}>{showAnswer && "test accordions"}</p>
 		</div>
 	);
 };
 
-export default CouponCard;
+export default Accordion;
