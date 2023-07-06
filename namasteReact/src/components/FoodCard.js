@@ -2,10 +2,11 @@ import React from "react";
 
 import {FaStar} from "react-icons/fa";
 
-import {restrautlist, URL} from "../config.js";
+import {restrautList, URL} from "../config.js";
 
 export default function FoodCard({
-  name, cloudinaryImageId,
+  name, 
+  cloudinaryImageId,
   cuisines,
   avgRating,
   deliveryTime,
@@ -14,8 +15,7 @@ export default function FoodCard({
 }) {
   console.log(cuisines);
   return (
-    <div className="foodContainer">
-      <div className=" w-72 m-2 p-2 hover:scale-110 delay-400 transition-all"></div>
+      <div className=" w-72 m-2 p-2 hover:scale-110 delay-400 transition-all">
         <img src={URL + cloudinaryImageId} className="foodImage"/>
 
         <div className="py-2">
@@ -45,6 +45,6 @@ export default function FoodCard({
           }}
         ></div>
         <div className="addCtaContainer"></div>
-		</div>
+      </div>
 	);
 }
