@@ -11,7 +11,9 @@ const AddressCard = ({
             <h2 className="font-bold">{addressType}</h2>
             <p>{addressDescription}</p>
             <p>{deliveryTime}</p>
-            <button className="bg-green-500 px-3 py-1 text-white mt-1 text-sm">{ctaText}</button>
+            <button className="bg-green-500 px-3 py-1 text-white mt-1 text-sm">
+                {ctaText}
+            </button>
         </div>
     )
 }

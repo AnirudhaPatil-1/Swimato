@@ -9,7 +9,7 @@ import { FiUser } from "react-icons/fi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import IconWithRightLabel from "./IconWithRightLabel";
 
-import useGetUser from "..utils/hooks/useGetUser";
+import useGetUser from "../utils/hooks/useGetUser";
 
 // other config imports
 
@@ -62,7 +62,8 @@ const Header = () => {
 
 				<li>
 					<NavLink
-						to="/sign"
+						// to="/sign"
+						to={Object.keys(user).length === 0 && "/sign"}
 						style={({ isActive }) => (isActive ? activeStyle : null)}
 					>
 						<IconWithRightLabel
@@ -91,7 +92,7 @@ const Header = () => {
 						}}
 					>
 						<p
-							className="hover:curso-pointer"
+							className="hover:cursor-pointer"
 							onClick={() => navigate("/fav")}
 						>
 							Favourites
@@ -118,11 +119,8 @@ const Header = () => {
 					</NavLink>
 				</li>
 			</ul>
-			<button
-				onClick={()=> {signOutUser()}}
-			>
+			<button onClick={()=> {signOutUser()}}>
 				{Object.keys(user).length !== 0 && "Sign out"}
-
 			</button>
 		</div>
 	);
@@ -132,12 +130,11 @@ const Title = () => {
 	return (
 		<h1>
 			<NavLink to="/">
-				<span
-					style={{color: "#2c3e50"}} className="font-bold text-2xl">
-						Food
-						<span style={{color: "#e67e22"}} className="font-bold text-2xl">
-							OOSH
-						</span>
+				<span style={{color: "#2c3e50"}} className="font-bold text-2xl">
+					Food
+					<span style={{color: "#e67e22"}} className="font-bold text-2xl">
+						OOSH
+					</span>
 				</span>
 			</NavLink>
 		</h1>

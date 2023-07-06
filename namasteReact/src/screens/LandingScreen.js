@@ -16,6 +16,7 @@ import "../theme/CommonStyle.css";
 import { FaStar } from "react-icons/fa";
 import Header from "../components/Header";
 import useOnline from "../utils/hooks/useOnline";
+
 // Component Body
 const LandingScreen = () => {
 	// Init states
@@ -24,7 +25,7 @@ const LandingScreen = () => {
 	const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 	const [error, setError] = useState("");
 	console.log(allRestaurants);
-	//handleSort by Rating
+	//handle Sort by Rating
 	function sortOnHighToLowRating(){
 		let sorted_list_rating = 
 			filteredRestaurants &&
@@ -57,17 +58,12 @@ const LandingScreen = () => {
 			filteredRestaurants &&
 			filteredRestaurants.sort((a, b) => a.data.costForTwo - b.data.costForTwo);
 		setFilteredRestaurants([...sorted_list_price_low_to_high]);
-
 	}
-
-
-
 
 	// check user network status
 	const isOnline = useOnline();
 
 	console.log("ison", isOnline);
-
 
 	// will get called only once
 	useEffect(() => {
@@ -100,7 +96,6 @@ const LandingScreen = () => {
 			restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
 		);
 	}
-
 	// const isOnline = useOnline();
 
 	if (!isOnline) {
@@ -136,7 +131,9 @@ const LandingScreen = () => {
 			<Slider />
 			<div className="m_t_24 px-24 flex justify-between">
 				<h2 className="font-bold text-2xl">
-					{allRestaurants.length} Restaurants</h2>
+					{allRestaurants.length} Restaurants
+				</h2>
+
 				<div>
 					<button
 						className="border-yellow-500 border ml-2 px-6"
@@ -150,24 +147,30 @@ const LandingScreen = () => {
 					>
 						<p className="hover:text-slate-600 transition-all">Delivery Time</p>
 					</button>
+
 					<button
 						className="border-yellow-500 border ml-2 px-6"
 						onClick={() => sortPriceHighToLow}
 					>
-						<p className="hover: text-slate-600 transition-all">Cost: High to Low</p>
-						{" "}
+						<p className="hover: text-slate-600 transition-all">
+							{" "}
+							Cost: High to Low
+						</p>	
 					</button>
+
 					<button
 						className="border-yellow-500 border ml-2 px-6"
 						onClick={() => sortPriceLowToHigh}
 					>
-						<p>Cost: Low to High</p>
+						<p className="hover: text-slate-600 transition-all">
+							Cost: Low to High
+						</p>
 					</button>
 				</div>
 			</div>
 			<div style={{border: "0.2px solid #b6b6b6", marginTop: "20px"}}></div>
-			{error}
 
+			{error}
 
 			<div className="flex flex-wrap items-center justify-center">
 				{filteredRestaurants.length === 0 ? (

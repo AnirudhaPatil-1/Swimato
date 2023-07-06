@@ -24,6 +24,7 @@ const OffersScreen = () => {
 	//get offers list
 	const offers = useOffers();
 
+	//return
 	return (
 		<div className="restaurantOffersContainer">
 			<div className="restaurantOffersHeader">
