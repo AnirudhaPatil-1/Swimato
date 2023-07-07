@@ -30,7 +30,7 @@ const Header = () => {
 	// return
 	return (
 		<div className="header">
-			<Title />;
+			<Title/>
 			<ul>
 				<li>
 					<NavLink
@@ -130,10 +130,10 @@ const Title = () => {
 	return (
 		<h1>
 			<NavLink to="/">
-				<span style={{color: "#2c3e50"}} className="font-bold text-2xl">
-					Food
-					<span style={{color: "#e67e22"}} className="font-bold text-2xl">
-						OOSH
+				<span style={{color: "#F97E22"}} className="font-bold text-2xl">
+					SWI
+					<span style={{color: "#E43744"}} className="font-bold text-2xl">
+						ZoOM
 					</span>
 				</span>
 			</NavLink>

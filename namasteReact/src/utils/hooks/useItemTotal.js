@@ -1,8 +1,8 @@
-import {userSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 import React from "react";
 
-function userItemTotal(){
+function useItemTotal(){
     const cartItems = useSelector((store) => store.cart.items);
 
     const getItemTotal = () => {
@@ -17,4 +17,4 @@ function userItemTotal(){
 
     return getItemTotal;
 }
-export default userItemTotal;
+export default useItemTotal;

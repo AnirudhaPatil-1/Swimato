@@ -27,7 +27,7 @@ import Cta from "../components/Cta";
 import FoodType from "../components/FoodType";
 
 // Custom Hooks imports
-import useItemTotal from "../utils/hooks/useItemtotal";
+import useItemTotal from "../utils/hooks/useItemTotal";
 import CartFallback from "../components/CartFallback";
 
 // RestaurantMenuScreen

@@ -27,8 +27,8 @@ import store from "./src/store/store";
 import {Provider} from "react-redux";
 import FavouriteRestaurantScreen from "./src/screens/FavouriteRestaurantScreen";
 
-
 // component
+
 const AppLayout = () => {
 	return (
 		<Provider store={store}>
@@ -51,6 +51,7 @@ const appRoute = createBrowserRouter([
 				path:"/fav",
 				element: <FavouriteRestaurantScreen/>,
 			},
+			
 			{
 				path: "/help",
 				element: <HelpScreen />,

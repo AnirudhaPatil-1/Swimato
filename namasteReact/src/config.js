@@ -756,14 +756,14 @@ export const USERS_ADDRESS_LIST = [
 export const URL =
 	"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+// const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 
-console.log({ supabaseUrl });
+// console.log({ supabaseUrl });
 
-const supabaseKey = process.env.REACT_APP_SUPABASE_ANON;
+// const supabaseKey = process.env.REACT_APP_SUPABASE_ANON;
 
-console.log({ supabaseKey });
+// console.log({ supabaseKey });
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+// const supabase = createClient(supabaseUrl, supabaseKey);
 
-export default supabase;
+// export default supabase;
