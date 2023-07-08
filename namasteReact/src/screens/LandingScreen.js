@@ -60,7 +60,7 @@ const LandingScreen = () => {
 		setFilteredRestaurants([...sorted_list_price_low_to_high]);
 	}
 
-	// check user network status
+	// check user network stagit tus
 	const isOnline = useOnline();
 
 	console.log("ison", isOnline);
@@ -74,7 +74,11 @@ const LandingScreen = () => {
 		try {
 			//get data
 			const res = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3667854&lng=77.06939799999999&page_type=DESKTOP_WEB_LISTING"
+				//ME TRYING
+				// "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3667854&lng=77.06939799999999&page_type=DESKTOP_WEB_LISTING"
+
+				//ORIGINAL
+				"https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.591945&lng=73.73897649999999&page_type=DESKTOP_WEB_LISTING"
 			);
 
 			// convert json to readable object
