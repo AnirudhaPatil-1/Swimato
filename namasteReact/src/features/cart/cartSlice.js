@@ -5,12 +5,13 @@ const cartSlice = createSlice({
     initialState: {
         items: [],
         restaurants:[],
-        //itemQuantity: 0,
+        itemQuantity: 0,
     },
     reducers:{
         addItemToCart:(state, action) =>{
             const itemPresent = state.items.find(
-                (item)=> {item.id === action.payload.id}
+                // (item)=> {item.id === action.payload.id}
+                (item)=> {item.card.info.id === action.payload.card.info.id}
             );
             if(itemPresent){
                 itemPresent.itemQuantity++;
@@ -24,18 +25,21 @@ const cartSlice = createSlice({
         incrementQuantity:(state, action) => {
             const itemPresent = state.items.find(
                 (item) => {
-                    item.id ===action.payload.id
+                    // item.id ===action.payload.id
+                    item.card.info.id ===action.payload.card.info.id
             })
 
             itemPresent && itemPresent.itemQuantity++;
         },
         decrementQuantity: (state, action) =>{
-            const itemPresent = state.items.find((item) => {item.id === action.payload.id})
+            // const itemPresent = state.items.find((item) => {item.id === action.payload.id})
+            const itemPresent = state.items.find((item) => {item.card.info.id === action.payload.card.info.id})
 
             if(itemPresent.itemQuantity === 1){
                 //if item quantity is 1, remove that  item from items array
                 const removeItem = state.items.find(
-                    (item) =>{ item.id !== action.payload.id})
+                    // (item) =>{ item.id !== action.payload.id})
+                    (item) =>{ item.card.info.id !== action.payload.card.info.id})
                     state.items = removeItem;
             }else{
                 item.itemQuantity--;
