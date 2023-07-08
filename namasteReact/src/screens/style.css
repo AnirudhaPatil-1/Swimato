@@ -53,7 +53,7 @@
 
 .recommendedSectionContainer {
 	display: grid;
-	grid-template-column: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	/* flex: 1; */
 	justify-content: space-between;
 	margin: 36px;
