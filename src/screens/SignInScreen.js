@@ -1,21 +1,21 @@
 import React from "react";
 
-import supabase from "../config";
+// import supabase from "../config";
 
 import { useNavigate } from "react-router-dom";
 
 const SignInScreen = () => {
-	console.log({ supabase});
+	// console.log({ supabase});
 
 	//Sign in user
-	supabase.auth.onAuthStateChange(async (event) => {
-		event !== "SIGNED_OUT" ? useNavigate("/") : useNavigate("/sign");
-	});
+	// supabase.auth.onAuthStateChange(async (event) => {
+	// 	event !== "SIGNED_OUT" ? useNavigate("/") : useNavigate("/sign");
+	// });
 
 	async function signInWithGoogle() {
-		const {data, error} = await supabase.auth.signInWithOAuth({
-			provider: "google",
-		});
+		// const {data, error} = await supabase.auth.signInWithOAuth({
+		// 	provider: "google",
+		// });
 	}
 	return (
 		<div className="w-fit mx-auto my-60 bg-neutral-100 px-4 py-2 flex item-center justify-center hover:bg-neutral-400 transition-all">

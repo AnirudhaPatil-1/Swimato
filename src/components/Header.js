@@ -18,7 +18,7 @@ const Header = () => {
 	// init local state
 	const [showDrawer, setShowDrawer] = useState(false);
 
-	const {user, signOutUser, deleteUser} = useGetUser();
+	// const {user, signOutUser, deleteUser} = useGetUser();
 
 	const navigate = useNavigate();
 
@@ -63,24 +63,24 @@ const Header = () => {
 				<li>
 					<NavLink
 						// to="/sign"
-						to={Object.keys(user).length === 0 && "/sign"}
-						style={({ isActive }) => (isActive ? activeStyle : null)}
+						// to={Object.keys(user).length === 0 && "/sign"}
+						// style={({ isActive }) => (isActive ? activeStyle : null)}
 					>
 						<IconWithRightLabel
-							isDrawerOpen={showDrawer}
-							onClick={() => setShowDrawer(!showDrawer)}
-							text={
-								Object.keys(user).length === 0
-								?"sign-in "
-								: user?.email?.slice(0, 5)
-							}
+							// isDrawerOpen={showDrawer}
+							// onClick={() => setShowDrawer(!showDrawer)}
+							// text={
+							// 	Object.keys(user).length === 0
+							// 	?"sign-in "
+							// 	: user?.email?.slice(0, 5)
+							// }
 							//text={"Sign In"}
 							icon={<FiUser style={{ height: "24px", width: "24px" }} />}
 						/>
 					</NavLink>
 				</li>
 
-				{showDrawer && Object.keys(user).length !==0 && (
+				{/* {showDrawer && Object.keys(user).length !==0 && (
 					<div
 						style={{
 							position: "absolute",
@@ -101,7 +101,7 @@ const Header = () => {
 							Logout
 						</p>
 					</div>
-				)}
+				)} */}
 
 				<li>
 					<NavLink
@@ -120,7 +120,7 @@ const Header = () => {
 				</li>
 			</ul>
 			<button onClick={()=> {signOutUser()}}>
-				{Object.keys(user).length !== 0 && "Sign out"}
+				{/* {Object.keys(user).length !== 0 && "Sign out"} */}
 			</button>
 		</div>
 	);
