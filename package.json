@@ -30,8 +30,16 @@
   "devDependencies": {
     "@babel/core": "^7.22.1",
     "parcel": "^2.9.3",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.25",
     "tailwindcss": "^3.3.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnirudhaPatil-1/Swimato.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AnirudhaPatil-1/Swimato/issues"
+  },
+  "homepage": "https://github.com/AnirudhaPatil-1/Swimato#readme",
   "description": ""
 }

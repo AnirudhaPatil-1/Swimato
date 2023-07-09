@@ -131,9 +131,9 @@ const Title = () => {
 		<h1>
 			<NavLink to="/">
 				<span style={{color: "#F97E22"}} className="font-bold text-2xl">
-					SWI
+					Swi
 					<span style={{color: "#E43744"}} className="font-bold text-2xl">
-						ZoOM
+						mato
 					</span>
 				</span>
 			</NavLink>
