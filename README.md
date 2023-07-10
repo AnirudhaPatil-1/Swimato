@@ -30,3 +30,8 @@ Please make sure you have the CORS extension _**enabled**_ in your browser to al
 You can download the CORS extension from the Chrome Web Store 
 https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
 
+## Contributing
+
+Contributions are welcome! If you have any ideas, suggestions, or improvements, feel free to open an issue or submit a pull request.
+
+
