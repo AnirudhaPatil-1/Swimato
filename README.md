@@ -1,5 +1,8 @@
 # Swimato - A Food Ordering App
 *****(Swiggy Clone)*****
+_**( May 2023 - May 2023)**_
+
+
 
 
 I am excited to share my ReactJS project _**Swimato**_ - A Food Ordering App 🍕🍟. 
@@ -22,7 +25,7 @@ It allows users to browse restaurants, view menus, add items to the cart, and pl
 
 ## Live Demo
 
-Check out the live demo of Swimato:  https://swimato-anirudha.netlify.app/
+Check out the live demo of [Swimato]( https://swimato-anirudha.netlify.app/)
 
 ## Note: 
 
