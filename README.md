@@ -1,6 +1,10 @@
 # Swimato - A Food Ordering App
 *****(Swiggy Clone)*****
 _**( May 2023 - May 2023)**_
+![swimato - food delviery app](https://github.com/AnirudhaPatil-1/Swimato/assets/73242321/3bbc99d6-8546-412c-a115-2501e414a5cf)
+
+
+![swimato - menu item](https://github.com/AnirudhaPatil-1/Swimato/assets/73242321/dcfcfc2a-ee66-4192-b67b-b1ede56ed9da)
 
 
 
